@@ -1,3 +1,4 @@
+
 """kirr URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,10 +20,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from shortener.views import Kirr_redirect_view, KirrCBView
+from shortener.views import HomeView, KirrCBView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^a/(?P<shortcode>[\w-]+){6,10}/$', Kirr_redirect_view),
-    url(r'^b/(?P<shortcode>[\w-]+){6,10}/$', KirrCBView.as_view()),
+    url(r'^$',HomeView.as_view()),
+    url(r'^(?P<shortcode>[\w-]+){6,15}/$', KirrCBView.as_view()),
+    
 ]

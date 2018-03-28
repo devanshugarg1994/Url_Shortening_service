@@ -3,15 +3,69 @@
 	{
 		"selected_items":
 		[
+			[
+				"c",
+				"context"
+			],
+			[
+				"short",
+				"shortener"
+			],
+			[
+				"Home",
+				"HomeView"
+			],
+			[
+				"n",
+				"new_url"
+			],
+			[
+				"s",
+				"shortcode"
+			],
+			[
+				"Ki",
+				"KirrURL"
+			],
+			[
+				"get",
+				"get_object_or_404"
+			],
+			[
+				"Kir",
+				"KirrURLManager"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "Url_Shortening_service",
+			"contents": "from django.shortcuts import render, get_object_or_404\nfrom django.http import HttpResponse, HttpResponseRedirect\nfrom django.views import View\nfrom .forms import SubmitUrlForm\nfrom .models import KirrURL\n# Create your views here.\n\"\"\"def Kirr_redirect_view(request, shortcode =None, *args, **kwargs):\n\tobj = get_object_or_404(KirrURL, shortcode=shortcode)\n\treturn  HttpResponseRedirect(obj.url)\n\"\"\"\ndef home_view_fbv(request, *args, **kwargs):\n\tif request.method ==\"POST\":\n\t\tprint (request.POST)\n\treturn render(request, \"shortener/home.html\",{})\n\nclass HomeView(View):\n\tdef get(self ,request ,*args, **kwargs):\n\t\tthe_form = SubmitUrlForm()\n\t\tcontext = {\n\t\t\t\"title\" : \"kirr URL\",\n\t\t\t\"form\" : the_form\n\t\t}\n\t\tform = SubmitUrlForm()\n\t\treturn render(request, \"shortener/home.html\",context)\n\n\tdef post(self, *args, **kwargs):\n\t\tprint(request.POST)\n\t\tprint(request.POST[\"url\"])\n\t\tprint(request.POST.get[\"url\"])\n\t\tform = SubmitUrlForm(request.POST)\n\t\tif form.is_valid():\n\t\t\tprint(form.cleaned_data)\n\t\treturn render (request, \"shortener/home.html\",{})\n\nclass KirrCBView(View):\n\tdef get(self,request, shortcode=None,*args,**kwargs):\n\t\tobj = get_object_or_404(KirrURL, shortcode=shortcode)\n\t\treturn HttpResponseRedirect(obj.url)\n\n\n",
+			"file": "src/shortener/views.py",
+			"file_size": 1224,
+			"file_write_time": 131663951609568066,
 			"settings":
 			{
-				"buffer_size": 45,
+				"buffer_size": 1220,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/shortener/templates/shortener/home.html",
+			"settings":
+			{
+				"buffer_size": 242,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/shortener/forms.py",
+			"settings":
+			{
+				"buffer_size": 104,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -48,14 +102,38 @@
 	},
 	"expanded_folders":
 	[
-		"/home/devanshu/Desktop/Url"
+		"/home/devanshu/Desktop/Url",
+		"/home/devanshu/Desktop/Url/src",
+		"/home/devanshu/Desktop/Url/src/shortener",
+		"/home/devanshu/Desktop/Url/src/shortener/templates",
+		"/home/devanshu/Desktop/Url/src/shortener/templates/shortener"
 	],
 	"file_history":
 	[
+		"/home/devanshu/Desktop/Url/src/shortener/templates/shortener/forms.py",
+		"/home/devanshu/Desktop/Url/lib/python3.5/site-packages/django/http/response.py",
+		"/home/devanshu/Desktop/Url/src/shortener/templates/shortener/home.html",
+		"/home/devanshu/Desktop/Url/src/shortener/templates/home.html",
+		"/home/devanshu/Desktop/Url/src/kirr/urls.py",
+		"/home/devanshu/Desktop/Url/src/shortener/models.py",
+		"/home/devanshu/Desktop/Url/src/shortener/views.py",
+		"/home/devanshu/Desktop/Url/src/kirr/settings.py",
+		"/home/devanshu/Desktop/Url/src/kirr/hosts.py",
+		"/home/devanshu/Desktop/Url/src/kirr/hostsconf/views.py",
+		"/home/devanshu/Desktop/Url/src/kirr/hostsconf/urls.py",
+		"/home/devanshu/Desktop/Url/src/kirr/hostsconf/__init__.py",
+		"/home/devanshu/Desktop/Url/src/shortener/management/commands/refreshcodes.py",
+		"/home/devanshu/Desktop/Url/src/shortener/util.py",
+		"/home/devanshu/Desktop/Url/src/shortener/admin.py",
+		"/home/devanshu/Desktop/Url/src/shortener/management/__init__.py",
+		"/home/devanshu/Desktop/Url/src/shortener/management/refreshcodes.py",
+		"/home/devanshu/Desktop/Url/src/shortener/migrations/__init__.py",
+		"/home/devanshu/Desktop/Url/Url_Shortening_service",
+		"/home/devanshu/Desktop/Url/README.md"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -91,24 +169,24 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Url_Shortening_service",
+					"file": "src/shortener/views.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 45,
+						"buffer_size": 1220,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								45,
-								45
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -116,17 +194,74 @@
 					},
 					"stack_index": 0,
 					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/shortener/templates/shortener/home.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 242,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								242,
+								242
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/shortener/forms.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 104,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								104,
+								104
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 26.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 44.0
 	},
 	"layout":
 	{
@@ -159,7 +294,7 @@
 	"project": "Url_Shortening_service",
 	"replace":
 	{
-		"height": 0.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -194,10 +329,10 @@
 	{
 	},
 	"show_minimap": true,
-	"show_open_files": false,
+	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 199.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

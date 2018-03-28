@@ -1,3 +1,5 @@
+
+
 from django.core.management.base import BaseCommand, CommandError
 from shortener.models import KirrURL
 
